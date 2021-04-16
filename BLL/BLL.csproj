@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DAL\DAL.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="NEST" Version="7.11.1" />
+    </ItemGroup>
+
+</Project>
