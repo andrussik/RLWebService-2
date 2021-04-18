@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using DTO.Sierra;
-using MarcReader;
+using MARC4J.Net;
 
 namespace DTO.SearchEngine.Mappers
 {

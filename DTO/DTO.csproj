@@ -10,7 +10,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MarcReader\MarcReader.csproj" />
+      <ProjectReference Include="..\MARC4J.Net\MARC4J.Net.csproj" />
     </ItemGroup>
 
 </Project>

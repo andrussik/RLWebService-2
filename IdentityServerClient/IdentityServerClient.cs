@@ -11,15 +11,16 @@ namespace IdentityServerClient
         private readonly HttpClient _sierraTokenHttpClient;
         private readonly HttpClient _riksTokenHttpClient;
         private readonly HttpClient _urramTokenHttpClient;
+        
         private TokenResponse? SierraToken { get; set; }
         private TokenResponse? RiksToken { get; set; }
         private TokenResponse? UrramToken { get; set; }
-
+        
         public IdentityServerClient(IHttpClientFactory clientFactory)
         {
-            _sierraTokenHttpClient = clientFactory.CreateClient("sierraToken");
-            _riksTokenHttpClient = clientFactory.CreateClient("riksToken");
-            _urramTokenHttpClient = clientFactory.CreateClient("urramToken");
+            _sierraTokenHttpClient = clientFactory.CreateClient("SierraToken");
+            _riksTokenHttpClient = clientFactory.CreateClient("RiksToken");
+            _urramTokenHttpClient = clientFactory.CreateClient("UrramToken");
         }
 
         public async Task<string> RequestSierraTokenAsync()

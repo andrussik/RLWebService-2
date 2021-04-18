@@ -1,7 +1,7 @@
-using BLL.Services.Interfaces;
-using DAL.EF.Interfaces;
-using DAL.Elasticsearch.Factory;
+using DAL.Common.Factory;
+using DAL.EF.UoW;
 using DAL.Riks.Factory;
+using DAL.SearchEngine.Factory;
 using DAL.Sierra.Factory;
 using DAL.Urram.Factory;
 
@@ -9,25 +9,19 @@ namespace BLL.Services.Impl
 {
     public class BaseService : IBaseService
     {
-        protected readonly IUnitOfWork UOW;
+        protected readonly IUnitOfWork Uow;
         protected readonly ISierraRepositoryCollection SierraRepo;
         protected readonly IRiksRepositoryCollection RiksRepo;
         protected readonly IUrramRepositoryCollection UrramRepo;
-        protected readonly IElasticsearchRepositoryCollection ElasticRepo;
+        protected readonly IElasticRepositoryCollection ElasticRepo;
 
-        public BaseService(
-            IUnitOfWork uow,
-            ISierraRepositoryCollection sierraRepo,
-            IRiksRepositoryCollection riksRepo,
-            IUrramRepositoryCollection urramRepo,
-            IElasticsearchRepositoryCollection elasticRepo
-            )
+        public BaseService(IDalCollection dal)
         {
-            UOW = uow;
-            SierraRepo = sierraRepo;
-            RiksRepo = riksRepo;
-            UrramRepo = urramRepo;
-            ElasticRepo = elasticRepo;
+            Uow = dal.Uow;
+            SierraRepo = dal.SierraRepo;
+            RiksRepo = dal.RiksRepo;
+            UrramRepo = dal.UrramRepo;
+            ElasticRepo = dal.ElasticRepo;
         }
     }
 }

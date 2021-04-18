@@ -1,5 +1,4 @@
 using System.Net.Http;
-using DAL.Sierra.Repositories.Interfaces;
 
 namespace DAL.Sierra.Repositories.Impl
 {

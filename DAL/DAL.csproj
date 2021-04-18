@@ -27,4 +27,9 @@
       <ProjectReference Include="..\DTO\DTO.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Common" />
+      <Folder Include="SearchEngine\Repositories\Interfaces" />
+    </ItemGroup>
+
 </Project>

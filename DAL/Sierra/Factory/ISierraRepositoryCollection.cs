@@ -1,4 +1,4 @@
-using DAL.Sierra.Repositories.Interfaces;
+using DAL.Sierra.Repositories;
 
 namespace DAL.Sierra.Factory
 {

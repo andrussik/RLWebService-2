@@ -1,5 +1,5 @@
 using System.Net.Http;
-using DAL.Factory;
+using DAL.Common.Factory;
 
 namespace DAL.Riks.Factory
 {

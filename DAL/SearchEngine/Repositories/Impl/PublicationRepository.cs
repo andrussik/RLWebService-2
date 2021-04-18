@@ -1,10 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DAL.Elasticsearch.Repositories.Interfaces;
 using DTO.SearchEngine;
 using Nest;
 
-namespace DAL.Elasticsearch.Repositories.Impl
+namespace DAL.SearchEngine.Repositories.Impl
 {
     public class PublicationRepository : BaseRepository, IPublicationRepository
     {

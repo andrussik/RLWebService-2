@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Domain.Base;
+using Domain.Common;
 using Domain.Enums;
 
 namespace Domain.Entities

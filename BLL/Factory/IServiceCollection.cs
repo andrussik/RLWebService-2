@@ -1,9 +1,10 @@
-using BLL.Services.Interfaces;
+using BLL.Services;
 
 namespace BLL.Factory
 {
     public interface IServiceCollection
     {
-        IBookService Books { get; }
+        ISearchService Searches { get; }
+        IAuthorService Authors { get; }
     }
 }

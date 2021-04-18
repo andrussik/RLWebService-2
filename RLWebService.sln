@@ -4,8 +4,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{DBB2985F-540B-4780-8BD1-2E8526AE2099}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Handlers", "Handlers\Handlers.csproj", "{688E667D-956C-4FB4-9835-125908BA21F2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServerClient", "IdentityServerClient\IdentityServerClient.csproj", "{407D3A29-1FC0-4BF3-86FA-6906FC00F655}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{D8F23DBF-180A-4FA7-B88F-23EA546EEC93}"
@@ -23,7 +21,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Extensions\Extensions.csproj", "{E5CE8C79-2DA5-4D7F-BF11-428A2DF44895}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarcReader", "MarcReader\MarcReader.csproj", "{B10B9FE5-B095-400F-88A5-561D83CAD45C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MARC4J.Net", "MARC4J.Net\MARC4J.Net.csproj", "{B10B9FE5-B095-400F-88A5-561D83CAD45C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{0568CCF7-25D8-4366-9A9A-E871E43EB2B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +39,6 @@ Global
 		{DBB2985F-540B-4780-8BD1-2E8526AE2099}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBB2985F-540B-4780-8BD1-2E8526AE2099}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBB2985F-540B-4780-8BD1-2E8526AE2099}.Release|Any CPU.Build.0 = Release|Any CPU
-		{688E667D-956C-4FB4-9835-125908BA21F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{688E667D-956C-4FB4-9835-125908BA21F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{688E667D-956C-4FB4-9835-125908BA21F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{688E667D-956C-4FB4-9835-125908BA21F2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{407D3A29-1FC0-4BF3-86FA-6906FC00F655}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{407D3A29-1FC0-4BF3-86FA-6906FC00F655}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{407D3A29-1FC0-4BF3-86FA-6906FC00F655}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -67,5 +63,9 @@ Global
 		{B10B9FE5-B095-400F-88A5-561D83CAD45C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B10B9FE5-B095-400F-88A5-561D83CAD45C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B10B9FE5-B095-400F-88A5-561D83CAD45C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0568CCF7-25D8-4366-9A9A-E871E43EB2B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0568CCF7-25D8-4366-9A9A-E871E43EB2B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0568CCF7-25D8-4366-9A9A-E871E43EB2B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0568CCF7-25D8-4366-9A9A-E871E43EB2B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

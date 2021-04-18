@@ -1,7 +1,6 @@
-using DAL.Elasticsearch.Repositories.Interfaces;
 using Nest;
 
-namespace DAL.Elasticsearch.Repositories.Impl
+namespace DAL.SearchEngine.Repositories.Impl
 {
     public class BaseRepository : IBaseRepository
     {

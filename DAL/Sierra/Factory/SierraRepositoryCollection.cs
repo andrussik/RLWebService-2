@@ -1,7 +1,7 @@
 using System.Net.Http;
-using DAL.Factory;
+using DAL.Common.Factory;
+using DAL.Sierra.Repositories;
 using DAL.Sierra.Repositories.Impl;
-using DAL.Sierra.Repositories.Interfaces;
 
 namespace DAL.Sierra.Factory
 {

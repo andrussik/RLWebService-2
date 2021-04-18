@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using DAL.EF.Interfaces;
-using DAL.Elasticsearch.Factory;
+using DAL.Common.Factory;
+using DAL.EF.UoW;
 using DAL.Riks.Factory;
+using DAL.SearchEngine.Factory;
 using DAL.Sierra.Factory;
 using DAL.Urram.Factory;
 
@@ -10,27 +11,13 @@ namespace BLL.Factory
 {
     public class ServiceFactory : IServiceFactory
     {
-        protected readonly IUnitOfWork Uow;
-        protected readonly ISierraRepositoryCollection SierraRepo;
-        protected readonly IRiksRepositoryCollection RiksRepo;
-        protected readonly IUrramRepositoryCollection UrramRepo;
-        protected readonly IElasticsearchRepositoryCollection ElasticRepo;
+        protected readonly IDalCollection Dal;
         
         private readonly Dictionary<Type, object> _serviceCache = new();
 
-        protected ServiceFactory(
-            IUnitOfWork uow,
-            ISierraRepositoryCollection sierraRepo,
-            IRiksRepositoryCollection riksRepo,
-            IUrramRepositoryCollection urramRepo,
-            IElasticsearchRepositoryCollection elasticRepo
-            )
+        protected ServiceFactory(IDalCollection dal)
         {
-            Uow = uow;
-            SierraRepo = sierraRepo;
-            RiksRepo = riksRepo;
-            UrramRepo = urramRepo;
-            ElasticRepo = elasticRepo;
+            Dal = dal;
         }
 
         public TService GetService<TService>(Func<TService> serviceCreationMethod) 

@@ -1,6 +1,6 @@
 namespace BLL.BL
 {
-    public class TriggerBL
+    internal class TriggerBL
     {
         
     }

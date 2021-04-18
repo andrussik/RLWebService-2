@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Domain.Base;
+using Domain.Common;
 
 namespace Domain.Entities
 {
