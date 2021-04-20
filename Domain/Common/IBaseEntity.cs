@@ -6,7 +6,7 @@ namespace Domain.Common
     {
         Guid Id { get; }
         DateTime CreatedAt { get; }
-        DateTime? UpdatedAt { get; }
+        DateTime UpdatedAt { get; }
         DateTime? DeletedAt { get; }
     }
 }

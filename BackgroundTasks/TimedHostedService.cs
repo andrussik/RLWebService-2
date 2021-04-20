@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using IServiceCollection = BLL.Factory.IServiceCollection;
 
-namespace WebApp.BackgroundTasks
+namespace BackgroundTasks
 {
     public class TimedHostedService : IHostedService, IDisposable
     {

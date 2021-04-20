@@ -10,6 +10,9 @@ namespace DAL.EF.Factory
         {
         }
 
+        public IPublicationRepository Publications =>
+            GetRepository(() => new PublicationRepository(_dbContext));
+
         public IAuthorRepository Authors =>
             GetRepository(() => new AuthorRepository(_dbContext));
         public IWorkRepository Works =>

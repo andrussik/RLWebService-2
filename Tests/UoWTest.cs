@@ -15,7 +15,7 @@ namespace Tests
     {
         private readonly IUnitOfWork _uow;
         private readonly ITestOutputHelper _testOutputHelper;
-
+    
         public UoWTest(ITestOutputHelper testOutputHelper)
         {
             _testOutputHelper = testOutputHelper;
@@ -24,9 +24,12 @@ namespace Tests
                 .AddUserSecrets<UoWTest>()
                 .Build();
 
+            // Use actual database - integration tests
             var localDbOptions = new DbContextOptionsBuilder<AppDbContext>()
                 .UseSqlServer(configuration["ConnectionStrings:AzureSqlEdge"])
                 .Options;
+            
+            // Use in-memory database - unit tests
             var inMemoryDbOptions = new DbContextOptionsBuilder<AppDbContext>()
                 .UseInMemoryDatabase("InMemoryDb")
                 .Options;
@@ -34,16 +37,19 @@ namespace Tests
             var dbContext = new AppDbContext(localDbOptions);
             var uow = new UnitOfWork(dbContext);
             _uow = uow;
-            // Seed();
+            // Seed().Wait();
         }
 
-        private async void Seed()
+        private async Task Seed()
         {
+            await _uow.BeginTransactionAsync();
             var work1 = new Work();
             var work2 = new Work();
             var work3 = new Work();
             await _uow.Works.AddRangeAsync(new[] {work1, work2, work3});
 
+            _testOutputHelper.WriteLine(work1.Id.ToString());
+            _testOutputHelper.WriteLine("Saved");
             var author1 = new Author
             {
                 Name = "Test1"
@@ -58,6 +64,7 @@ namespace Tests
             };
 
             await _uow.Authors.AddRangeAsync(new[] {author1, author2, author3});
+            _testOutputHelper.WriteLine(author1.Id.ToString());
 
             var workAuthor1 = new WorkAuthor
             {
@@ -75,7 +82,7 @@ namespace Tests
                 AuthorId = author3.Id
             };
             await _uow.WorkAuthors.AddRangeAsync(new[] {workAuthor1, workAuthor2, workAuthor3});
-            
+            _testOutputHelper.WriteLine(workAuthor1.Id.ToString());
             await _uow.SaveChangesAsync();
         }
 
@@ -96,6 +103,20 @@ namespace Tests
             {
                 _testOutputHelper.WriteLine(workAuthor.Author?.Name);
             }
+        }
+
+        [Fact]
+        public void Test2()
+        {
+            var maxId = _uow.Publications.GetMaxSierraId();
+            _testOutputHelper.WriteLine(maxId);
+        }
+        
+        [Fact]
+        public void Test3()
+        {
+            var maxId = _uow.Publications.GetMaxSierraId();
+            _testOutputHelper.WriteLine(maxId);
         }
     }
 }

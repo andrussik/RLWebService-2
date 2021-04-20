@@ -21,5 +21,8 @@ namespace BLL.Factory
 
         public IAuthorService Authors =>
         GetService<IAuthorService>(() => new AuthorService(Dal));
+        
+        public ISierraFetchService SierraFetchService =>
+            GetService<ISierraFetchService>(() => new SierraFetchService(Dal));
     }
 }

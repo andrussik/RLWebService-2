@@ -6,8 +6,10 @@
   </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\BackgroundTasks\BackgroundTasks.csproj" />
       <ProjectReference Include="..\BLL\BLL.csproj" />
       <ProjectReference Include="..\DAL\DAL.csproj" />
+      <ProjectReference Include="..\IdentityServerClient\IdentityServerClient.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -17,6 +19,15 @@
       <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
       <PackageReference Include="Moq" Version="4.16.1" />
       <PackageReference Include="xunit" Version="2.4.1" />
+      <PackageReference Include="Xunit.DependencyInjection" Version="7.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="appsettings.json">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

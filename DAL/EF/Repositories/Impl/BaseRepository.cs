@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -11,10 +13,12 @@ namespace DAL.EF.Repositories.Impl
     public class BaseRepository<TEntity> : IBaseRepository<TEntity>
         where TEntity : class, IBaseEntity
     {
-        public DbSet<TEntity> RepoDbSet { get; set; }
+        private readonly AppDbContext _dbContext;
+        protected DbSet<TEntity> RepoDbSet { get; }
 
-        public BaseRepository(AppDbContext dbContext)
+        protected BaseRepository(AppDbContext dbContext)
         {
+            _dbContext = dbContext;
             RepoDbSet = dbContext.Set<TEntity>();
         }
 
@@ -71,6 +75,29 @@ namespace DAL.EF.Repositories.Impl
             entities = entities.ToList();
             RepoDbSet.RemoveRange(entities);
             return entities;
+        }
+
+        public IList<T> RawSqlQuery<T>(string query, Func<DbDataReader, T> map)
+        {
+            using (var command = _dbContext.Database.GetDbConnection().CreateCommand())
+            {
+                command.CommandText = query;
+                command.CommandType = CommandType.Text;
+
+                _dbContext.Database.OpenConnection();
+
+                using (var result = command.ExecuteReader())
+                {
+                    var entities = new List<T>();
+
+                    while (result.Read())
+                    {
+                        entities.Add(map(result));
+                    }
+
+                    return entities;
+                }
+            }
         }
 
         // NB! For testing purpose only! Please avoid passing IQueryable to BLL.

@@ -1,12 +1,14 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using DTO.Sierra;
+using Microsoft.Win32.SafeHandles;
 using Item = DTO.Sierra.Item;
 
 namespace DAL.Sierra.Repositories
 {
     public interface IBookRepository
     {
+        Task<BibResponse> FindWithAllFieldsAsync(int minId, int maxId);
         Task<SearchResponse> FindAsync(string searchString);
         Task<string> GetMarcFileAsync(string link);
         Task<MarcFileLinkResponse> GetMarcFileLinkFromIdsAsync(IEnumerable<string> bookIds);

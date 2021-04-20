@@ -8,7 +8,7 @@ namespace DAL.Sierra.Repositories.Impl
 
         public BaseRepository(IHttpClientFactory clientFactory)
         {
-            _httpClient = clientFactory.CreateClient("sierra");
+            _httpClient = clientFactory.CreateClient("Sierra");
         }
     }
 }

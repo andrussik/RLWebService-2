@@ -1,10 +1,10 @@
+using BackgroundTasks;
 using BLL.Extensions;
 using DAL.Extensions;
 using IdentityServerClient.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Nest;
-using WebApp.BackgroundTasks;
 
 namespace WebApp.Extensions.ServiceExtensions
 {

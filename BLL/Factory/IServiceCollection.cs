@@ -6,5 +6,6 @@ namespace BLL.Factory
     {
         ISearchService Searches { get; }
         IAuthorService Authors { get; }
+        ISierraFetchService SierraFetchService { get; }
     }
 }

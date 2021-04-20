@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace DAL.EF.Repositories
         TEntity Remove(TEntity entity);
         Task<TEntity> RemoveAsync(Guid id);
         IEnumerable<TEntity> RemoveRange(IEnumerable<TEntity> entity);
+        IList<T> RawSqlQuery<T>(string query, Func<DbDataReader, T> map);
         IQueryable<TEntity> AsQueryable();
     }
 }

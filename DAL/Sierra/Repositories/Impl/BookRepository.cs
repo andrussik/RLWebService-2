@@ -12,7 +12,21 @@ namespace DAL.Sierra.Repositories.Impl
         public BookRepository(IHttpClientFactory clientFactory) : base(clientFactory)
         {
         }
-        
+
+        public async Task<BibResponse> FindWithAllFieldsAsync(int minId, int maxId)
+        {
+            var minAndMaxIds = new [] {minId, maxId};
+            var bookIdsString = string.Join(",", minAndMaxIds);
+            var urlString = $"bibs?id=[{bookIdsString}]" +
+                "&offset=0" +
+                "&limit=2000" +
+                "&fields=title,author,materialType,publishYear,country,locations,copies,marc";
+            var uri = _httpClient.BaseAddress;
+            var result = await _httpClient.GetFromJsonAsync<BibResponse>(urlString);
+
+            return result ?? new BibResponse();
+        }
+
         public async Task<SearchResponse> FindAsync(string searchString)
         {
             var urlString = "bibs/search?text=" + searchString + "&start=0&limit=2000";
